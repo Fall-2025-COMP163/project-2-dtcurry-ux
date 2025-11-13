@@ -54,22 +54,22 @@ class SimpleBattle:
 # YOUR CLASSES TO IMPLEMENT (6 CLASSES TOTAL)
 # ============================================================================
 
-import random
+import random # Ai helped me utilize this for the rogue class to have random critical dmg spikes.
 
-class Character:
+class Character: # Represents each character in the game.
     """
     Base class for all characters.
     This is the top of our inheritance hierarchy.
     """
     
-    def __init__(self, name, health, strength, magic):
+    def __init__(self, name, health, strength, magic): #These are the attributes
         """Initialize basic character attributes"""
         self.name = name
         self.health = health
         self.strength = strength
         self.magic = magic
         
-    def attack(self, target):
+    def attack(self, target): #Method
         """
         Basic attack method that all characters can use.
         Damage = strength
@@ -78,12 +78,12 @@ class Character:
         print(f"{self.name} attacks {target.name} for {damage} damage!")
         target.take_damage(damage)
         
-    def take_damage(self, damage):
+    def take_damage(self, damage): #method
         """Reduce health but never below 0"""
         self.health = max(0, self.health - damage)
         print(f"{self.name} now has {self.health} HP.")
         
-    def display_stats(self):
+    def display_stats(self):#method
         """Show basic stats"""
         print(f"=== {self.name} ===")
         print(f"Health: {self.health}")
@@ -91,7 +91,7 @@ class Character:
         print(f"Magic: {self.magic}")
 
 
-class Player(Character):
+class Player(Character): #Inherits from Character, overrides display stats to include the specific class level of each player #hierarchy 
     """Base class for player characters"""
     
     def __init__(self, name, character_class, health, strength, magic):
@@ -107,7 +107,7 @@ class Player(Character):
         print(f"Experience: {self.experience}")
 
 
-class Warrior(Player):
+class Warrior(Player): #Specialized player classes and there stats
     """Warrior class"""
     
     def __init__(self, name):
@@ -163,7 +163,7 @@ class Rogue(Player):
         target.take_damage(damage)
 
 
-class Weapon:
+class Weapon: #Represents weapons associated with that character
     """Weapon class for composition"""
     
     def __init__(self, name, damage_bonus):
@@ -178,7 +178,7 @@ class Weapon:
 # MAIN PROGRAM FOR TESTING (YOU CAN MODIFY THIS FOR TESTING)
 # ============================================================================
 
-if __name__ == "__main__":
+if __name__ == "__main__": #This test's everything including the polymorphism
     print("=== CHARACTER ABILITIES SHOWCASE ===")
     print("Testing inheritance, polymorphism, and method overriding")
     print("=" * 50)
