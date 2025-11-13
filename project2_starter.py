@@ -91,7 +91,7 @@ class Character: # Represents each character in the game.
         print(f"Magic: {self.magic}")
 
 
-class Player(Character): #Inherits from Character, overrides display stats to include the specific class level of each player #hierarchy 
+class Player(Character): #Inherits from Character, overrides display stats to include the specific class level of each player #hierarchy #Ai assisted me in creating the specialized "rogue" class
     """Base class for player characters"""
     
     def __init__(self, name, character_class, health, strength, magic):
